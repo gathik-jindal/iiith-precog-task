@@ -1,3 +1,8 @@
+# datasets (just the image folders)
+datasets/easy_set/
+datasets/hard_set/
+datasets/bonus_set/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
