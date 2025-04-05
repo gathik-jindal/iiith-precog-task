@@ -2,12 +2,12 @@
 Date: 2025-04-05
 Author: Gathik Jindal
 Description: This script generates the hard set for task 0.
-  It creates a folder called hard_set and generates 100 images of random words.
-  The mapping between the image name and the word is saved in a csv file.
-  The images are 200x100 pixels in size, but font size is random between 20 and 50.
-  All letters have the same size but varying fonts, with noisy or textured background.
-  The words are randomly generated and need not have any meaning.
-  The words have varying capitalization, color and have a length of 3 to 10 characters.
+    It creates a folder called hard_set and generates 100 images of random words.
+    The mapping between the image name and the word is saved in a csv file.
+    The images are 200x100 pixels in size, but font size is random between 20 and 50.
+    All letters have the same size but varying fonts, with noisy or textured background.
+    The words are randomly generated and need not have any meaning.
+    The words have varying capitalization, color and have a length of 3 to 10 characters.
 """
 
 from PIL import Image, ImageDraw, ImageFont
@@ -15,6 +15,7 @@ import random
 import string
 import os
 import csv
+import math
 
 
 def generate_word():
@@ -45,11 +46,26 @@ fh = open("dataset/hard_set.csv", "w", newline="")
 csv_writer = csv.writer(fh)
 
 for i in range(100):
-    font = ImageFont.truetype(get_random_font(), random.randint(20, 50))
     word = generate_word()
+    fontsize = random.randint(20, 50)
     im = Image.new("RGB", (250, 100), "white")
     d = ImageDraw.Draw(im)
-    d.text((125, 50), word, fill="black", anchor="mm", font=font)
+
+    x = 25
+    y = 50
+    fonts = [ImageFont.truetype(get_random_font(), fontsize)
+             for _ in range(len(word))]
+
+    for j in range(len(word)):
+        font = fonts[j]
+        d.text((x, y), word[j], fill=(random.randint(1, 255), random.randint(
+            1, 255), random.randint(1, 255)), anchor="lm", font=font)
+        if (j < len(word) - 1):
+            # adjusting for kerning
+            x += math.ceil(max(fonts[j+1].getlength(
+                word[j:j+2]) - fonts[j+1].getlength(word[j+1]), font.getlength(
+                word[j:j+2]) - font.getlength(word[j+1])))
+
     num = str(i + 1).zfill(3)
     im.save(f"dataset/hard_set/{num}.png")
     csv_writer.writerow([f"{num}.png", word])
