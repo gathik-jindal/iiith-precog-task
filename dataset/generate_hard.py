@@ -8,6 +8,9 @@ Description: This script generates the hard set for task 0.
     All letters have the same size but varying fonts, with noisy or textured background.
     The words are randomly generated and need not have any meaning.
     The words have varying capitalization, color and have a length of 3 to 10 characters.
+
+Sources: add_grain function is taken from GPT.
+         https://pillow.readthedocs.io/en/stable/handbook/text-anchors.html
 """
 
 from PIL import Image, ImageDraw, ImageFont
@@ -16,6 +19,28 @@ import string
 import os
 import csv
 import math
+
+
+def add_grain(img: Image.Image):
+    """
+    Adds random noise (Grainy Texture) to the image.
+    """
+    pixels = img.load()
+    intensity = 60
+
+    width, height = img.size
+
+    for x in range(width):
+        for y in range(height):
+            r, g, b = pixels[x, y]
+
+            # Add random noise
+            def noise(): return random.randint(-intensity, intensity)
+            r = max(0, min(255, r + noise()))
+            g = max(0, min(255, g + noise()))
+            b = max(0, min(255, b + noise()))
+
+            pixels[x, y] = (r, g, b)
 
 
 def generate_word():
@@ -51,7 +76,9 @@ for i in range(100):
     im = Image.new("RGB", (250, 100), "white")
     d = ImageDraw.Draw(im)
 
-    x = 25
+    add_grain(im)
+
+    x = 10
     y = 50
     fonts = [ImageFont.truetype(get_random_font(), fontsize)
              for _ in range(len(word))]

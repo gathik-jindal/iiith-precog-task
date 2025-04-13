@@ -1,4 +1,4 @@
-# iiith-precog-task
+# CAPTCHA Solver
 
 ## Set Up
 
@@ -16,4 +16,8 @@ pip install -r requirements.txt
 │   ├── generate_easy.py
 │   ├── generate_hard.py
 │   ├── generate_bonus.py
-|
+```
+
+## Source Code
+https://pillow.readthedocs.io/en/stable/handbook/text-anchors.html - to generate datasets
+https://pillow.readthedocs.io/en/stable/reference/ImageFont.html#PIL.ImageFont.FreeTypeFont.getlength - to align letters of different fonts in the hard_set

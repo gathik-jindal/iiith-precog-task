@@ -44,12 +44,16 @@ os.makedirs("dataset/easy_set", exist_ok=True)
 fh = open("dataset/easy_set.csv", "w", newline="")
 csv_writer = csv.writer(fh)
 
+# starting location for the text
+x = 10
+y = 50
+
 for i in range(100):
     font = ImageFont.truetype(get_random_font(), random.randint(20, 50))
     word = generate_word()
     im = Image.new("RGB", (250, 100), "white")
     d = ImageDraw.Draw(im)
-    d.text((125, 50), word, fill="black", anchor="mm", font=font)
+    d.text((x, y), word, fill="black", anchor="lm", font=font)
     num = str(i + 1).zfill(3)
     im.save(f"dataset/easy_set/{num}.png")
     csv_writer.writerow([f"{num}.png", word])
