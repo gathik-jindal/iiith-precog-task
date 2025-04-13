@@ -1,4 +1,5 @@
-<!-- PROJECT LOGO -->
+<a id="readme-top"></a>
+
 <br />
 <div align="center">
 
@@ -21,6 +22,7 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
+    <li><a href="#folder-structure">Folder Structure</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -28,20 +30,13 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
 ## About The Project
 
-This project is for IIITHs precog task. This project aims to capture an understanding at data generation, creating neural network and understanding the differnt layers to it.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+This project is for IIITHs precog task. This project aims to capture an understanding at data generation, creating neural network and understanding the different layers to it.
 
 ### Built With
 
