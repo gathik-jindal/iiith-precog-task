@@ -1,4 +1,7 @@
 torch
 torchvision
 pillow
-tensorflow[and-cuda]
+pandas
+numpy
+opencv-python
+scikit-learn
