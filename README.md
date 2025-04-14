@@ -23,6 +23,7 @@
       </ul>
     </li>
     <li><a href="#folder-structure">Folder Structure</a></li>
+    <li><a href="#architecture">Folder Structure</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -85,6 +86,12 @@ The `fonts` folder contains 100 fonts that I webscrapped from `fonts.google.com`
 The `scripts` folder contains scripts for task 1 and task 2. It also contains the scripts required to `pre_processors` the data, i.e to make it in the desired structure for the neural networks to run.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Architecture
+
+The following is the architecture that was meant for generation, in classification the first 4 are not present, i.e. transcription to mapping.
+
+![architecture](architecture.png)
 
 ## Getting Started
 
